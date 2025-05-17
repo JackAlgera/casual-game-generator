@@ -1,5 +1,14 @@
+# Git files
 .git
 .gitignore
+
+# Docker files
 Dockerfile
 .dockerignore
-target
+
+# Gradle files
+build
+gradle
+
+# IntelliJ files
+.idea
