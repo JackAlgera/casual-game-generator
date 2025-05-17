@@ -17,6 +17,11 @@ repositories {
 	mavenCentral()
 }
 
+bootJar {
+	archiveBaseName.set('casual-game-generator')
+	archiveVersion.set('')
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
