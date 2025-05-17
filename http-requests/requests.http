@@ -1,0 +1,5 @@
+### GET request to test server
+GET http://localhost:8080/test
+
+### GET request to test server
+GET http://localhost:8080/test/3
