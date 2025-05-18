@@ -1,1 +1,10 @@
 rootProject.name = 'casual-game-generator'
+
+// App
+include 'app'
+
+// Core
+include 'core'
+
+// Infrastructure
+include 'infrastructure:http-clients'

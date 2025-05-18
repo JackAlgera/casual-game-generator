@@ -1,0 +1,5 @@
+### GET request to Datamuse API to fetch words related to "ocean"
+GET https://api.datamuse.com/words?rel_jjb=ocean&max=10
+
+### GET request to Dictionary API to fetch description of "ocean"
+GET https://api.dictionaryapi.dev/api/v2/entries/en/friend
