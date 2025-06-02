@@ -1,7 +1,18 @@
+plugins {
+  id 'org.springframework.boot' version '3.4.5'
+}
+
+bootJar {
+  archiveBaseName.set('casual-game-generator')
+  archiveVersion.set('')
+}
+
 dependencies {
   implementation(project(":core"))
+  implementation(project(":infrastructure:http-clients"))
 
   // Spring
   implementation 'org.springframework.boot:spring-boot-starter-web'
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+

@@ -1,7 +1,9 @@
 package com.jack.algera.app.configurations;
 
-import com.jack.algera.core.api.GamesService;
-import com.jack.algera.core.services.GamesServiceImpl;
+import com.jack.algera.app.api.GamesService;
+import com.jack.algera.app.clients.WordRepositoryImpl;
+import com.jack.algera.app.services.GamesServiceImpl;
+import com.jack.algera.app.spi.WordRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,7 +11,12 @@ import org.springframework.context.annotation.Configuration;
 public class CoreConfiguration {
 
   @Bean
-  public GamesService wordService() {
-    return new GamesServiceImpl();
+  public WordRepository wordRepository() {
+    return new WordRepositoryImpl();
+  }
+
+  @Bean
+  public GamesService wordService(WordRepository wordRepository) {
+    return new GamesServiceImpl(wordRepository);
   }
 }

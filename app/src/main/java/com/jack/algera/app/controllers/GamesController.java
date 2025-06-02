@@ -1,7 +1,7 @@
 package com.jack.algera.app.controllers;
 
-import com.jack.algera.core.api.GamesService;
-import com.jack.algera.core.entities.GameInstance;
+import com.jack.algera.app.api.GamesService;
+import com.jack.algera.app.entities.GameInstance;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,5 +17,10 @@ public class GamesController {
   @GetMapping("/word-guesser/{hash}")
   public ResponseEntity<GameInstance> getWordGuesserGame(@PathVariable String hash) {
     return ResponseEntity.ok(gamesService.getGameInstance(hash));
+  }
+
+  @GetMapping("/word-guesser/{hash}/solution")
+  public ResponseEntity<String> getWordGuesserSolution(@PathVariable String hash) {
+    return ResponseEntity.ok(hash);
   }
 }
