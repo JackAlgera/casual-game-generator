@@ -1,5 +1,8 @@
-### GET request to test server
-GET http://localhost:8080/word-guesser/hello
+### GET request to fetch a word-guesser game details for hash "hash"
+GET http://localhost:8080/api/games/word-guesser/hash
 
-### GET request to test server
-GET http://localhost:8080/word-guesser/hello/solution
+### GET request to get Sudoku game details for hash "hash"
+GET http://localhost:8080/api/games/sudoku/hash
+
+### GET request to get Sudoku game details for hash "hash" printed
+GET http://localhost:8080/api/games/sudoku/hash/print
