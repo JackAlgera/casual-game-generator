@@ -2,6 +2,7 @@ package com.jack.algera.app.controllers;
 
 import com.jack.algera.app.api.GamesService;
 import com.jack.algera.app.entities.GameInstance;
+import com.jack.algera.app.entities.SudokuDifficulty;
 import com.jack.algera.app.entities.SudokuResponse;
 import com.jack.algera.app.helpers.GamePrinterService;
 import lombok.AllArgsConstructor;
@@ -27,13 +28,13 @@ public class GamesController {
     return ResponseEntity.ok(
         SudokuResponse.builder()
             .hash(hash)
-            .sudokuGame(gamesService.getSudokuGame(hash))
+            .sudokuGame(gamesService.getSudokuGame(hash, SudokuDifficulty.EASY))
             .build());
   }
 
   @GetMapping("/sudoku/{hash}/print")
   public ResponseEntity<String> printSudokuGame(@PathVariable String hash) {
-    var sudokuGame = gamesService.getSudokuGame(hash);
+    var sudokuGame = gamesService.getSudokuGame(hash, SudokuDifficulty.EASY);
 
     return ResponseEntity.ok(gamePrinterService.visualiseGameInstance(sudokuGame));
   }

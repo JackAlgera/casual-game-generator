@@ -22,8 +22,8 @@ public class GamePrinterService {
    * 6 8 1 | . 4 2 | 7 5 9
    * 7 2 4 | . . 1 | 6 . 8
    *
-   * @param sudokuGame
-   * @return
+   * @param sudokuGame the Sudoku game instance to be printed
+   * @return a human-readable string representation of the Sudoku game instance
    */
   public String visualiseGameInstance(SudokuGame sudokuGame) {
     if (sudokuGame == null ||sudokuGame.grid().length == 0) {
