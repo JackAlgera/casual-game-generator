@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 public class GamePrinterService {
 
   /**
-   * Prints the suggested game instance in a human-readable fashion.
-   * For example, for Sudoku it prints the following:
-   * <p>
-   * 8 6 5 | 2 1 3 | 9 4 7<br>
+   * Prints the suggested game instance in a human-readable fashion. For example, for Sudoku it
+   * prints the following:
+   *
+   * <p>8 6 5 | 2 1 3 | 9 4 7<br>
    * . 3 7 | 4 . 9 | . 8 .<br>
    * . . 9 | 6 8 7 | 3 . 5<br>
    * - - - - - - - - - - -<br>

@@ -2,7 +2,7 @@
 GET http://localhost:8080/api/games/word-guesser/hash
 
 ### GET request to get Sudoku game details for hash "hash"
-GET http://localhost:8080/api/games/sudoku/hash
+GET http://localhost:8080/api/games/sudoku/hash?difficulty=HARD
 
 ### GET request to get Sudoku game details for hash "hash" printed
 GET http://localhost:8080/api/games/sudoku/hash/print

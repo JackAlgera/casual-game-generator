@@ -29,6 +29,7 @@ public class GamesServiceImpl implements GamesService {
         .orElseGet(
             () ->
                 SudokuGame.builder()
+                    .difficulty(difficulty)
                     .grid(SudokuGenerationService.generateSudokuGame(difficulty))
                     .build());
   }

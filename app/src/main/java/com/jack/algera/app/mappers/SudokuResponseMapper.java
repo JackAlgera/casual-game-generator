@@ -20,6 +20,6 @@ public class SudokuResponseMapper {
             .filter(row -> !row.isBlank())
             .toList();
 
-    return SudokuResponse.builder().hash(hash).rows(rows).build();
+    return SudokuResponse.builder().hash(hash).difficulty(game.difficulty()).rows(rows).build();
   }
 }

@@ -4,4 +4,4 @@ import java.util.List;
 import lombok.Builder;
 
 @Builder
-public record SudokuResponse(String hash, List<String> rows) {}
+public record SudokuResponse(String hash, SudokuDifficulty difficulty, List<String> rows) {}
