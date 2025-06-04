@@ -1,7 +1,7 @@
 package com.jack.algera.app.spi;
 
-import java.util.List;
 import com.jack.algera.app.entities.Word;
+import java.util.List;
 
 public interface WordRepository {
 

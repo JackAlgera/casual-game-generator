@@ -10,23 +10,23 @@ public class GamePrinterService {
    * Prints the suggested game instance in a human-readable fashion.
    * For example, for Sudoku it prints the following:
    * <p>
-   * 8 6 5 | 2 1 3 | 9 4 7
-   * . 3 7 | 4 . 9 | . 8 .
-   * . . 9 | 6 8 7 | 3 . 5
-   * - - - - - - - - - - -
-   * 1 . 8 | 9 2 . | 5 . .
-   * . . 2 | 1 7 . | 8 6 4
-   * 5 7 6 | 8 3 4 | . 9 1
-   * - - - - - - - - - - -
-   * 9 5 3 | 7 6 . | 4 1 2
-   * 6 8 1 | . 4 2 | 7 5 9
-   * 7 2 4 | . . 1 | 6 . 8
+   * 8 6 5 | 2 1 3 | 9 4 7<br>
+   * . 3 7 | 4 . 9 | . 8 .<br>
+   * . . 9 | 6 8 7 | 3 . 5<br>
+   * - - - - - - - - - - -<br>
+   * 1 . 8 | 9 2 . | 5 . .<br>
+   * . . 2 | 1 7 . | 8 6 4<br>
+   * 5 7 6 | 8 3 4 | . 9 1<br>
+   * - - - - - - - - - - -<br>
+   * 9 5 3 | 7 6 . | 4 1 2<br>
+   * 6 8 1 | . 4 2 | 7 5 9<br>
+   * 7 2 4 | . . 1 | 6 . 8<br>
    *
    * @param sudokuGame the Sudoku game instance to be printed
    * @return a human-readable string representation of the Sudoku game instance
    */
   public String visualiseGameInstance(SudokuGame sudokuGame) {
-    if (sudokuGame == null ||sudokuGame.grid().length == 0) {
+    if (sudokuGame == null || sudokuGame.grid().length == 0) {
       return "What no game found";
     }
 

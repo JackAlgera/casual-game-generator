@@ -17,14 +17,19 @@ public class GamesServiceImpl implements GamesService {
   @Override
   public GameInstance getGameInstance(String hash) {
     /* TODO: Implement the logic to retrieve a list of words and generate a cypher for the game instance.
-             Make sure a given hash always returns the same game instance.*/
+    Make sure a given hash always returns the same game instance.*/
     var test = wordRepository.getWords(5, "some-hash");
     return GameInstance.builder().words(test).build();
   }
 
   @Override
   public SudokuGame getSudokuGame(String hash, SudokuDifficulty difficulty) {
-    return sudokuRepository.findByHash(hash, difficulty)
-                           .orElseGet(() -> SudokuGame.builder().grid(SudokuGenerationService.generateSudokuGame(difficulty)).build());
+    return sudokuRepository
+        .findByHash(hash, difficulty)
+        .orElseGet(
+            () ->
+                SudokuGame.builder()
+                    .grid(SudokuGenerationService.generateSudokuGame(difficulty))
+                    .build());
   }
 }

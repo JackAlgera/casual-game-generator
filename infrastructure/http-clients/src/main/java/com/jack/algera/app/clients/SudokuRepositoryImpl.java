@@ -1,9 +1,9 @@
 package com.jack.algera.app.clients;
 
-import java.util.Optional;
 import com.jack.algera.app.entities.SudokuDifficulty;
 import com.jack.algera.app.entities.SudokuGame;
 import com.jack.algera.app.spi.SudokuRepository;
+import java.util.Optional;
 
 public class SudokuRepositoryImpl implements SudokuRepository {
 
@@ -13,6 +13,5 @@ public class SudokuRepositoryImpl implements SudokuRepository {
   }
 
   @Override
-  public void save(String hash, SudokuGame sudokuGame) {
-  }
+  public void save(String hash, SudokuGame sudokuGame) {}
 }

@@ -1,8 +1,8 @@
 package com.jack.algera.app.clients;
 
-import java.util.List;
 import com.jack.algera.app.entities.Word;
 import com.jack.algera.app.spi.WordRepository;
+import java.util.List;
 
 public class WordRepositoryImpl implements WordRepository {
   @Override

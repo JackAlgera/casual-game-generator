@@ -1,8 +1,8 @@
 package com.jack.algera.app.spi;
 
-import java.util.Optional;
 import com.jack.algera.app.entities.SudokuDifficulty;
 import com.jack.algera.app.entities.SudokuGame;
+import java.util.Optional;
 
 public interface SudokuRepository {
 
