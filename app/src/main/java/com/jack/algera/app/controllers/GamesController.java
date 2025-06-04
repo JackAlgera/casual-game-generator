@@ -5,6 +5,7 @@ import com.jack.algera.app.entities.GameInstance;
 import com.jack.algera.app.entities.SudokuDifficulty;
 import com.jack.algera.app.entities.SudokuResponse;
 import com.jack.algera.app.helpers.GamePrinterService;
+import com.jack.algera.app.mappers.SudokuResponseMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,11 +28,8 @@ public class GamesController {
 
   @GetMapping("/sudoku/{hash}")
   public ResponseEntity<SudokuResponse> getSudokuGame(@PathVariable String hash) {
-    return ResponseEntity.ok(
-        SudokuResponse.builder()
-            .hash(hash)
-            .sudokuGame(gamesService.getSudokuGame(hash, SudokuDifficulty.EASY))
-            .build());
+    var game = gamesService.getSudokuGame(hash, SudokuDifficulty.EASY);
+    return ResponseEntity.ok(SudokuResponseMapper.toResponse(hash, game));
   }
 
   @GetMapping("/sudoku/{hash}/print")
