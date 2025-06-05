@@ -1,9 +1,9 @@
 package com.jack.algera.app.entities;
 
-import java.util.List;
-import java.util.UUID;
 import com.jack.algera.core.entities.SudokuDifficulty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.List;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +11,7 @@ import lombok.Data;
 @Builder
 @Data
 @AllArgsConstructor
-public class SudokuResponse {
+public class GenerateSudokuResponse {
 
   @Schema(
       description = "Unique UUID for the Sudoku game",

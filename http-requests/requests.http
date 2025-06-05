@@ -1,8 +1,24 @@
-### GET request to fetch a word-guesser game details for hash "hash"
+### GET request
 GET http://localhost:8080/api/games/word-guesser/hash
 
-### GET request to get Sudoku game details for hash "hash"
-GET http://localhost:8080/api/games/sudoku/hash?difficulty=HARD
+### GET request to generate new Sudoku instance
+GET http://localhost:8080/api/sudoku/new?difficulty=HARD
 
-### GET request to get Sudoku game details for hash "hash" printed
-GET http://localhost:8080/api/games/sudoku/hash/print
+### POST request to solve Sudoku puzzle
+POST http://localhost:8080/api/games/sudoku/validate
+Content-Type: application/json
+
+{
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "grid": [
+    "123456780",
+    "123456780",
+    "123456780",
+    "123456780",
+    "123456780",
+    "123456780",
+    "123456780",
+    "123456780",
+    "123456780"
+  ]
+}

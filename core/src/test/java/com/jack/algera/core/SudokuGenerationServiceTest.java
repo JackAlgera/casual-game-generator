@@ -1,6 +1,7 @@
-package com.jack.algera.core.services;
+package com.jack.algera.core;
 
 import com.jack.algera.core.entities.SudokuDifficulty;
+import com.jack.algera.core.services.SudokuGenerationService;
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.Test;
 

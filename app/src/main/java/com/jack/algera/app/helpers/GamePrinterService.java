@@ -1,6 +1,6 @@
 package com.jack.algera.app.helpers;
 
-import com.jack.algera.core.entities.SudokuGame;
+import com.jack.algera.core.entities.Sudoku;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,29 +22,29 @@ public class GamePrinterService {
    * 6 8 1 | . 4 2 | 7 5 9<br>
    * 7 2 4 | . . 1 | 6 . 8<br>
    *
-   * @param sudokuGame the Sudoku game instance to be printed
+   * @param sudoku the Sudoku game instance to be printed
    * @return a human-readable string representation of the Sudoku game instance
    */
-  public String visualiseGameInstance(SudokuGame sudokuGame) {
-    if (sudokuGame == null || sudokuGame.grid().length == 0) {
+  public String visualiseGameInstance(Sudoku sudoku) {
+    if (sudoku == null || sudoku.grid().length == 0) {
       return "What no game found";
     }
 
     StringBuilder printedGame = new StringBuilder();
-    for (int i = 0; i < sudokuGame.grid().length; i++) {
+    for (int i = 0; i < sudoku.grid().length; i++) {
       if (i != 0 && i % 3 == 0) {
         printedGame.append("---------------------\n");
       }
 
-      for (int j = 0; j < sudokuGame.grid()[0].length; j++) {
+      for (int j = 0; j < sudoku.grid()[0].length; j++) {
         if (j != 0 && j % 3 == 0) {
           printedGame.append("| ");
         }
 
-        if (sudokuGame.grid()[i][j] == 0) {
+        if (sudoku.grid()[i][j] == 0) {
           printedGame.append("_ ");
         } else {
-          printedGame.append(sudokuGame.grid()[i][j]).append(" ");
+          printedGame.append(sudoku.grid()[i][j]).append(" ");
         }
       }
       printedGame.append("\n");

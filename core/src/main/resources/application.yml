@@ -1,8 +1,0 @@
-spring:
-  application:
-    name: casual-game-generator
-  main:
-    banner-mode: off
-
-server:
-  port: 8080

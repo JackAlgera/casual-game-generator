@@ -1,53 +1,56 @@
 package com.jack.algera.app.controllers;
 
-import com.jack.algera.app.api.GamesService;
-import com.jack.algera.app.entities.GameInstance;
-import com.jack.algera.app.entities.SudokuDifficulty;
-import com.jack.algera.app.entities.SudokuResponse;
+import com.jack.algera.app.entities.GenerateSudokuResponse;
+import com.jack.algera.app.entities.SudokuValidationRequest;
+import com.jack.algera.app.entities.SudokuValidationResponse;
 import com.jack.algera.app.exceptions.InvalidDifficultyException;
-import com.jack.algera.app.helpers.GamePrinterService;
-import com.jack.algera.app.mappers.SudokuResponseMapper;
+import com.jack.algera.app.mappers.SudokuMapper;
+import com.jack.algera.core.api.GamesService;
+import com.jack.algera.core.entities.SudokuDifficulty;
+import com.jack.algera.core.exceptions.InstanceNotFoundException;
 import java.util.Optional;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/games")
+@RequestMapping("/api")
 public class GamesController {
 
   private GamesService gamesService;
-  private GamePrinterService gamePrinterService;
 
-  @GetMapping("/word-guesser/{hash}")
-  public ResponseEntity<GameInstance> getWordGuesserGame(@PathVariable String hash) {
-    return ResponseEntity.ok(gamesService.getGameInstance(hash));
-  }
-
-  @GetMapping("/sudoku/{hash}")
-  public ResponseEntity<SudokuResponse> getSudokuGame(
-      @PathVariable String hash, @RequestParam(required = false) String difficulty) {
+  @GetMapping("/sudoku/new")
+  public ResponseEntity<GenerateSudokuResponse> generateSudoku(
+      @RequestParam(required = false) String difficulty) {
     try {
       var d =
           Optional.ofNullable(difficulty)
               .map(SudokuDifficulty::valueOf)
               .orElse(SudokuDifficulty.EASY);
-      var game = gamesService.getSudokuGame(hash, d);
-      return ResponseEntity.ok(SudokuResponseMapper.toResponse(hash, game));
+      var instance = gamesService.generateSudoku(d);
+      return ResponseEntity.ok(SudokuMapper.toResponse(instance));
     } catch (IllegalArgumentException e) {
       throw new InvalidDifficultyException();
     }
   }
 
-  @GetMapping("/sudoku/{hash}/print")
-  public ResponseEntity<String> printSudokuGame(@PathVariable String hash) {
-    var sudokuGame = gamesService.getSudokuGame(hash, SudokuDifficulty.EASY);
+  @PostMapping("/sudoku/validate")
+  public ResponseEntity<SudokuValidationResponse> validateSudoku(
+      @RequestBody SudokuValidationRequest request) {
+    var instance = SudokuMapper.toInstance(request);
 
-    return ResponseEntity.ok(gamePrinterService.visualiseGameInstance(sudokuGame));
+    try {
+      var validated = gamesService.validateSudokuGame(instance);
+      return ResponseEntity.ok(
+          SudokuValidationResponse.builder().id(instance.id()).valid(validated).build());
+    } catch (InstanceNotFoundException e) {
+      return ResponseEntity.notFound().build();
+    }
   }
 }

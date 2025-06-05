@@ -1,7 +1,6 @@
-package com.jack.algera.core.helpers;
+package com.jack.algera.app.helpers;
 
-import com.jack.algera.app.helpers.GamePrinterService;
-import com.jack.algera.core.entities.SudokuGame;
+import com.jack.algera.core.entities.Sudoku;
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.Test;
 
@@ -12,8 +11,8 @@ class GamePrinterServiceTest implements WithAssertions {
   @Test
   void testVisualiseGameInstance() {
     // Given
-    SudokuGame game =
-        SudokuGame.builder()
+    Sudoku game =
+        Sudoku.builder()
             .grid(
                 new int[][] {
                   new int[] {8, 6, 5, 2, 1, 3, 9, 4, 7},

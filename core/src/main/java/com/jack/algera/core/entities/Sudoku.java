@@ -4,4 +4,4 @@ import java.util.UUID;
 import lombok.Builder;
 
 @Builder
-public record SudokuGame(UUID id, SudokuDifficulty difficulty, int[][] grid) {}
+public record Sudoku(UUID id, SudokuDifficulty difficulty, int[][] grid) {}
