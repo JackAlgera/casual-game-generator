@@ -1,4 +1,4 @@
-package com.jack.algera.app;
+package com.jack.algera.core;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

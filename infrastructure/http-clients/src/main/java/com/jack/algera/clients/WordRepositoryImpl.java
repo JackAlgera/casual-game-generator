@@ -1,7 +1,7 @@
-package com.jack.algera.app.clients;
+package com.jack.algera.clients;
 
-import com.jack.algera.app.entities.Word;
-import com.jack.algera.app.spi.WordRepository;
+import com.jack.algera.core.entities.Word;
+import com.jack.algera.core.spi.WordRepository;
 import java.util.List;
 
 public class WordRepositoryImpl implements WordRepository {

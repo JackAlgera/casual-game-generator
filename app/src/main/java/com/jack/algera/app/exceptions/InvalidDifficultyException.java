@@ -1,6 +1,6 @@
 package com.jack.algera.app.exceptions;
 
-import com.jack.algera.app.entities.SudokuDifficulty;
+import com.jack.algera.core.entities.SudokuDifficulty;
 import java.util.Arrays;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -1,14 +1,14 @@
 package com.jack.algera.app.mappers;
 
-import com.jack.algera.app.entities.SudokuGame;
 import com.jack.algera.app.entities.SudokuResponse;
+import com.jack.algera.core.entities.SudokuGame;
 import java.util.Arrays;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class SudokuResponseMapper {
 
-  public static SudokuResponse toResponse(String hash, SudokuGame game) {
+  public static SudokuResponse toResponse(SudokuGame game) {
     var rows =
         Arrays.stream(game.grid())
             .map(
@@ -20,6 +20,6 @@ public class SudokuResponseMapper {
             .filter(row -> !row.isBlank())
             .toList();
 
-    return SudokuResponse.builder().hash(hash).difficulty(game.difficulty()).rows(rows).build();
+    return SudokuResponse.builder().id(game.id()).difficulty(game.difficulty()).rows(rows).build();
   }
 }

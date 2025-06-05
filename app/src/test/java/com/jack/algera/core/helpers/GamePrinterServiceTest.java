@@ -1,6 +1,7 @@
-package com.jack.algera.app.helpers;
+package com.jack.algera.core.helpers;
 
-import com.jack.algera.app.entities.SudokuGame;
+import com.jack.algera.app.helpers.GamePrinterService;
+import com.jack.algera.core.entities.SudokuGame;
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.Test;
 

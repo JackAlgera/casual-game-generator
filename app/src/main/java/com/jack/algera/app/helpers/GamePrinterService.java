@@ -1,6 +1,6 @@
 package com.jack.algera.app.helpers;
 
-import com.jack.algera.app.entities.SudokuGame;
+import com.jack.algera.core.entities.SudokuGame;
 import org.springframework.stereotype.Service;
 
 @Service

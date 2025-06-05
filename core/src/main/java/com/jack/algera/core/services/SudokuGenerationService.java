@@ -1,6 +1,6 @@
-package com.jack.algera.app.services;
+package com.jack.algera.core.services;
 
-import com.jack.algera.app.entities.SudokuDifficulty;
+import com.jack.algera.core.entities.SudokuDifficulty;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
