@@ -5,11 +5,11 @@ GET http://localhost:8080/api/games/word-guesser/hash
 GET http://localhost:8080/api/sudoku/new?difficulty=HARD
 
 ### POST request to solve Sudoku puzzle
-POST http://localhost:8080/api/games/sudoku/validate
+POST http://localhost:8080/api/sudoku/validate
 Content-Type: application/json
 
 {
-  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "id": "1b5a2a58-9eea-4e71-ad2e-69f84bc3da95",
   "grid": [
     "123456780",
     "123456780",

@@ -1,0 +1,7 @@
+services:
+  redis:
+    image: "redis:7-alpine"
+    command: /bin/sh -c "redis-server --requirepass password"
+    ports:
+      - "6379:6379"
+    restart: on-failure

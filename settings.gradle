@@ -7,4 +7,4 @@ include 'app'
 include 'core'
 
 // Infrastructure
-include 'infrastructure:http-clients'
+include 'infrastructure:redis'
