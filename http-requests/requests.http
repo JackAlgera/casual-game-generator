@@ -1,10 +1,7 @@
-### GET request
-GET http://localhost:8080/api/games/word-guesser/hash
-
-### GET request to generate new Sudoku instance
+### [Local] GET request to generate new Sudoku instance
 GET http://localhost:8080/api/sudoku/new?difficulty=HARD
 
-### POST request to solve Sudoku puzzle
+### [Local] POST request to solve Sudoku puzzle
 POST http://localhost:8080/api/sudoku/validate
 Content-Type: application/json
 
@@ -20,5 +17,27 @@ Content-Type: application/json
     "123456780",
     "123456780",
     "123456780"
+  ]
+}
+
+### [Deployed] GET request to generate new Sudoku instance
+GET https://casual-game-generator.onrender.com/api/sudoku/new?difficulty=HARD
+
+### [Deployed] POST request to solve Sudoku puzzle
+POST https://casual-game-generator.onrender.com/api/sudoku/validate
+Content-Type: application/json
+
+{
+  "id": "9f11db60-618c-4a2a-a972-165295d0a8bf",
+  "grid": [
+    "100260007",
+    "280019530",
+    "907008004",
+    "356040070",
+    "419003602",
+    "800605041",
+    "540020003",
+    "093007100",
+    "720036480"
   ]
 }

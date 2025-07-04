@@ -43,12 +43,12 @@ public class GamesController {
   @PostMapping("/sudoku/validate")
   public ResponseEntity<SudokuValidationResponse> validateSudoku(
       @RequestBody SudokuValidationRequest request) {
-    var instance = SudokuMapper.toInstance(request);
+    var solutionAttempt = SudokuMapper.toInstance(request);
 
     try {
-      var validated = gamesService.validateSudokuGame(instance);
+      var validated = gamesService.validateSudokuGame(solutionAttempt);
       return ResponseEntity.ok(
-          SudokuValidationResponse.builder().id(instance.id()).valid(validated).build());
+          SudokuValidationResponse.builder().id(solutionAttempt.id()).valid(validated).build());
     } catch (InstanceNotFoundException e) {
       return ResponseEntity.notFound().build();
     }

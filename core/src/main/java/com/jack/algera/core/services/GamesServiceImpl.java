@@ -5,28 +5,26 @@ import com.jack.algera.core.entities.Sudoku;
 import com.jack.algera.core.entities.SudokuDifficulty;
 import com.jack.algera.core.exceptions.InstanceNotFoundException;
 import com.jack.algera.core.spi.SudokuRepository;
-import com.jack.algera.core.spi.WordRepository;
+import java.util.Arrays;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class GamesServiceImpl implements GamesService {
 
-  private WordRepository wordRepository;
   private SudokuRepository sudokuRepository;
 
   @Override
-  public boolean validateSudokuGame(Sudoku instance) throws InstanceNotFoundException {
+  public boolean validateSudokuGame(Sudoku solutionAttempt) throws InstanceNotFoundException {
     var game =
         sudokuRepository
-            .findById(instance.id())
+            .findById(solutionAttempt.id())
             .orElseThrow(
                 () ->
                     new InstanceNotFoundException(
-                        "Sudoku instance not found for provided ID: " + instance.id()));
+                        "Sudoku instance not found for provided ID: " + solutionAttempt.id()));
 
-    // TODO: Implement the actual Sudoku validation logic.
-    return false;
+    return Arrays.deepEquals(game.grid(), solutionAttempt.grid());
   }
 
   @Override

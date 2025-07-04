@@ -17,8 +17,7 @@ public class CoreConfiguration {
   }
 
   @Bean
-  public GamesService wordService(
-      WordRepository wordRepository, SudokuRepository sudokuRepository) {
-    return new GamesServiceImpl(wordRepository, sudokuRepository);
+  public GamesService wordService(SudokuRepository sudokuRepository) {
+    return new GamesServiceImpl(sudokuRepository);
   }
 }

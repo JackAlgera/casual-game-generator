@@ -6,7 +6,7 @@ import com.jack.algera.core.exceptions.InstanceNotFoundException;
 
 public interface GamesService {
 
-  boolean validateSudokuGame(Sudoku game) throws InstanceNotFoundException;
+  boolean validateSudokuGame(Sudoku solutionAttempt) throws InstanceNotFoundException;
 
   Sudoku generateSudoku(SudokuDifficulty difficulty);
 }
