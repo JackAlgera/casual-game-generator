@@ -8,6 +8,8 @@ import com.jack.algera.entities.SudokuValidationRequest;
 import com.jack.algera.entities.SudokuValidationResponse;
 import com.jack.algera.exceptions.InvalidDifficultyException;
 import com.jack.algera.mappers.SudokuMapper;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Optional;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +29,14 @@ public class GamesController {
 
   @GetMapping("/sudoku/new")
   public ResponseEntity<GenerateSudokuResponse> generateSudoku(
-      @RequestParam(required = false) String difficulty) {
+      @Parameter(
+              description = "Difficulty of the Sudoku puzzle",
+              schema =
+                  @Schema(
+                      allowableValues = {"EASY", "MEDIUM", "HARD", "EXPERT"},
+                      defaultValue = "EASY"))
+          @RequestParam(required = false)
+          String difficulty) {
     try {
       var d =
           Optional.ofNullable(difficulty)
